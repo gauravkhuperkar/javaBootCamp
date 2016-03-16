@@ -1,7 +1,8 @@
 /*
     job
-        -calculate anything related with length and breadth.
- */
+        -Perform tasks which involves length and breadth
+*/
+
 public class Rectangle {
     private double length;
     private double breadth;
@@ -11,11 +12,11 @@ public class Rectangle {
         this.breadth = breadth;
     }
 
-    public double area(){
+    public double calculateArea(){
         return length*breadth;
     }
 
-    public double perimeter(){
+    public double calculatePerimeter(){
         return 2 * ( length + breadth );
     }
 }

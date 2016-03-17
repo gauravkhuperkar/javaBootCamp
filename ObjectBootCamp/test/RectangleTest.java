@@ -1,25 +1,33 @@
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
+import static org.hamcrest.core.StringStartsWith.startsWith;
 import static org.junit.Assert.assertEquals;
 
 public class RectangleTest {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
-    @Test(expected= IllegalArgumentException.class)
-    public void calculateArea_should_throw_an_illegal_argument_exception_if_length_is_negative() {
+
+    @Test
+    public void calculateArea_should_throw_an_illegal_argument_exception_if_length_is_negative() throws Exception {
         double length = -4;
         double breadth = 15.0;
-        Rectangle rectangle = Rectangle.create(length, breadth);
-    }
-
-    @Test(expected= IllegalArgumentException.class)
-    public void calculateArea_should_throw_an_illegal_argument_exception_if_breadth_is_negative() {
-        double length = 40;
-        double breadth = -15;
+        thrown.expectMessage(startsWith("Illegeal"));
         Rectangle rectangle = Rectangle.create(length, breadth);
     }
 
     @Test
-    public void calculateArea_should_return_area_of_rectangle_if_we_give_length_and_breadth_as_double() {
+    public void calculateArea_should_throw_an_illegal_argument_exception_if_breadth_is_negative() throws Exception {
+        double length = 40;
+        double breadth = -15;
+        thrown.expectMessage(startsWith("Illegeal"));
+        Rectangle rectangle = Rectangle.create(length, breadth);
+    }
+
+    @Test
+    public void calculateArea_should_return_area_of_rectangle_if_we_give_length_and_breadth_as_double() throws Exception{
         double length = 10.0;
         double breadth = 15.0;
         Rectangle rectangle = Rectangle.create(length,breadth);
@@ -28,15 +36,16 @@ public class RectangleTest {
     }
 
 
-    @Test(expected= IllegalArgumentException.class)
-    public void calculatePerimeter_should_throw_an_illegal_argument_exception_if_dimentions_are_negative() {
+    @Test
+    public void calculatePerimeter_should_throw_an_illegal_argument_exception_if_dimentions_are_negative() throws Exception {
         double length = -25;
         double breadth = -62;
+        thrown.expectMessage(startsWith("Illegeal"));
         Rectangle rectangle = Rectangle.create(length, breadth);
     }
 
     @Test
-    public void calculatePerimeter_should_return_perimeter_of_rectangle_if_we_give_length_and_breadth() {
+    public void calculatePerimeter_should_return_perimeter_of_rectangle_if_we_give_length_and_breadth() throws Exception {
         double length = 10;
         double breadth = 15;
         Rectangle rectangle = Rectangle.create(length,breadth);

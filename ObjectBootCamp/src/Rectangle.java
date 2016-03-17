@@ -1,6 +1,6 @@
 /*
     job
-        -Perform tasks which involves length and breadth
+        -Perform tasks which involves with its fields.
 */
 
 public class Rectangle {
@@ -12,11 +12,10 @@ public class Rectangle {
         this.breadth = breadth;
     }
 
-    public static Rectangle create(double length, double breadth){
+    public static Rectangle create(double length, double breadth) throws Exception {
         if(length <= 0 || breadth <= 0)
-            throw new IllegalArgumentException();
+            throw new Exception("Illegeal length or breadth");
         return new Rectangle(length,breadth);
-
     }
 
     public double calculateArea(){

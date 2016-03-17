@@ -1,3 +1,7 @@
+package shaps;
+
+import Exceptions.NonPositiveInputException;
+
 /*
     JOB-
         -perform tasks related to its fields

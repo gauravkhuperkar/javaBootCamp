@@ -1,7 +1,9 @@
-/*
+package shaps;/*
     job
         -Perform tasks which involves with its fields.
 */
+
+import Exceptions.NonPositiveInputException;
 
 public class Rectangle {
     private double length;

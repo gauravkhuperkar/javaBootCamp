@@ -10,7 +10,7 @@ public class Square extends Rectangle{
     }
     public static Square create(double side) throws Exception {
         if(side <= 0)
-            throw new NonPositiveInputException("length and breadth must be non zero positive numbers");
+            throw new NonPositiveInputException("side must be non zero positive numbers");
         return new Square(side);
     }
 

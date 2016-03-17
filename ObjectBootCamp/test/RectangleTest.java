@@ -15,7 +15,7 @@ public class RectangleTest {
         double length = -4;
         double breadth = 15.0;
         thrown.expect(NonPositiveInputException.class);
-        thrown.expectMessage(startsWith("length and breadth"));
+        thrown.expectMessage(startsWith("length must be non zero"));
         Rectangle rectangle = Rectangle.create(length, breadth);
     }
 
@@ -24,7 +24,7 @@ public class RectangleTest {
         double length = 40;
         double breadth = -15;
         thrown.expect(NonPositiveInputException.class);
-        thrown.expectMessage(startsWith("length and breadth"));
+        thrown.expectMessage(startsWith("breadth must be non zero"));
         Rectangle rectangle = Rectangle.create(length, breadth);
     }
 
@@ -33,7 +33,7 @@ public class RectangleTest {
         double length = 0;
         double breadth = 15.0;
         thrown.expect(NonPositiveInputException.class);
-        thrown.expectMessage(startsWith("length and breadth"));
+        thrown.expectMessage(startsWith("length must be non zero"));
         Rectangle rectangle = Rectangle.create(length, breadth);
     }
 
@@ -48,11 +48,20 @@ public class RectangleTest {
 
 
     @Test
-    public void calculatePerimeter_should_throw_an_illegal_argument_exception_if_dimentions_are_negative() throws Exception {
+    public void calculatePerimeter_should_throw_an_illegal_argument_exception_if_length_is_negative() throws Exception {
         double length = -25;
-        double breadth = -62;
+        double breadth = 62;
         thrown.expect(NonPositiveInputException.class);
-        thrown.expectMessage(startsWith("length and breadth"));
+        thrown.expectMessage(startsWith("length must be non zero"));
+        Rectangle rectangle = Rectangle.create(length, breadth);
+    }
+
+    @Test
+    public void calculatePerimeter_should_throw_an_illegal_argument_exception_if_breadth_is_negative() throws Exception {
+        double length = 55;
+        double breadth = -22;
+        thrown.expect(NonPositiveInputException.class);
+        thrown.expectMessage(startsWith("breadth must be non zero"));
         Rectangle rectangle = Rectangle.create(length, breadth);
     }
 

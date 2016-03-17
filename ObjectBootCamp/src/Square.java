@@ -2,11 +2,11 @@
     JOB-
         -perform tasks related to its fields
  */
-public class Square {
+public class Square extends Rectangle{
     private double side;
 
     private Square(double side) {
-        this.side = side;
+        super(side,side);
     }
     public static Square create(double side) throws Exception {
         if(side <= 0)
@@ -14,11 +14,4 @@ public class Square {
         return new Square(side);
     }
 
-    public double calculateArea() {
-        return (side*side);
-    }
-
-    public double calculatePerimeter() {
-        return 4*side;
-    }
 }

@@ -14,7 +14,8 @@ public class RectangleTest {
     public void calculateArea_should_throw_an_illegal_argument_exception_if_length_is_negative() throws Exception {
         double length = -4;
         double breadth = 15.0;
-        thrown.expectMessage(startsWith("Illegeal"));
+        thrown.expect(NonPositiveInputException.class);
+        thrown.expectMessage(startsWith("length and breadth"));
         Rectangle rectangle = Rectangle.create(length, breadth);
     }
 
@@ -22,7 +23,17 @@ public class RectangleTest {
     public void calculateArea_should_throw_an_illegal_argument_exception_if_breadth_is_negative() throws Exception {
         double length = 40;
         double breadth = -15;
-        thrown.expectMessage(startsWith("Illegeal"));
+        thrown.expect(NonPositiveInputException.class);
+        thrown.expectMessage(startsWith("length and breadth"));
+        Rectangle rectangle = Rectangle.create(length, breadth);
+    }
+
+    @Test
+    public void calculateArea_should_throw_an_illegal_argument_exception_if_dimensions_are_zero() throws Exception {
+        double length = 0;
+        double breadth = 15.0;
+        thrown.expect(NonPositiveInputException.class);
+        thrown.expectMessage(startsWith("length and breadth"));
         Rectangle rectangle = Rectangle.create(length, breadth);
     }
 
@@ -40,7 +51,8 @@ public class RectangleTest {
     public void calculatePerimeter_should_throw_an_illegal_argument_exception_if_dimentions_are_negative() throws Exception {
         double length = -25;
         double breadth = -62;
-        thrown.expectMessage(startsWith("Illegeal"));
+        thrown.expect(NonPositiveInputException.class);
+        thrown.expectMessage(startsWith("length and breadth"));
         Rectangle rectangle = Rectangle.create(length, breadth);
     }
 

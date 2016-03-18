@@ -1,39 +1,48 @@
 package chance;
 
+import Exceptions.IllegalInputException;
+
 public class Chance {
-    private final int totalPossibleOutcomes;
-    private final int numberOfCoins;
 
-    public Chance(int totalPossibleOutcomes, int numberOfCoins) {
-        this.totalPossibleOutcomes = totalPossibleOutcomes;
-        this.numberOfCoins = numberOfCoins;
+    private double value;
+
+    private Chance(double value) {
+        this.value = value;
     }
 
-    public double getProbabilityOfTail() {
-        double probability = 1d / totalPossibleOutcomes;
-        for(int i = 0; i < numberOfCoins-1; i++){
-            probability *= 1d / totalPossibleOutcomes;
-        }
-        return probability;
+    public static Chance create(double value) throws IllegalInputException {
+        if(value < 0 && value > 1)
+            throw new IllegalInputException("Value should be within 0 to 1");
+        return new Chance(value);
     }
 
-    public double getProbabilityOfAtleastOneTail(){
-        double probability = 1-(1d / totalPossibleOutcomes);
-        for(int i = 0; i < numberOfCoins-1; i++){
-            probability *= 1-(1d / totalPossibleOutcomes);
-        }
-        return 1 - (probability);
+    public Chance not() throws IllegalInputException {
+        return create(1-value);
     }
 
-    public double getProbabilityOfNotTail() {
-        return 1 - getProbabilityOfTail();
+    public Chance and(Chance chance) throws IllegalInputException {
+        return create(this.value*chance.value);
     }
-//
-//    public double getProbabilityOfTailForACoin(){
-//        return 1d / totalPossibleOutcomes;
-//    }
-//
-//    public double getProbabilityOfHeadForACoin(){
-//        return 1d / totalPossibleOutcomes;
-//    }
+
+    public Chance or(Chance chance) throws IllegalInputException {
+        return create(this.value+chance.value);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Chance chance = (Chance) o;
+
+        return Double.compare(chance.value, value) == 0;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Chance{" +
+                "value=" + value +
+                '}';
+    }
 }

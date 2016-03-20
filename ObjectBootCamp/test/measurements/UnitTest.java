@@ -1,7 +1,9 @@
 package measurements;
 
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -28,12 +30,12 @@ public class UnitTest {
         assertTrue(inch.equalsTo(cm));
     }
 
-    @Test
-    public void compare_gives_true_for_1centimeter_is_equal_to_10millimeter() throws Exception {
-        Unit cm = Centimeter.create(1);
-        Unit mm = Millimeter.create(10);
-        assertTrue(cm.equalsTo(mm));
-    }
+//    @Test
+//    public void compare_gives_true_for_1centimeter_is_equal_to_10millimeter() throws Exception {
+//        Unit cm = Centimeter.create(1);
+//        Unit mm = Millimeter.create(10);
+//        assertTrue(cm.equalsTo(mm));
+//    }
 
     @Test
     public void compare_gives_false_for_difrent_value_of_same_unit() throws Exception {
@@ -72,5 +74,22 @@ public class UnitTest {
         Unit otherLiter = Litre.create(3.78);
         assertEquals(true,gallon.equalsTo(otherLiter));
 
+    }
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    @Test
+    public void add_throws_exception_for_different_measurement_unit() throws Exception {
+        Unit inch = Inch.create(1);
+        Unit litre = Litre.create(1);
+        thrown.expect(NotOfSameMeasurementException.class);
+        litre.add(inch);
+    }
+    @Test
+    public void equal_throws_exception_for_different_measurement_unit() throws Exception {
+        Unit inch = Inch.create(1);
+        Unit litre = Litre.create(1);
+        thrown.expect(NotOfSameMeasurementException.class);
+        litre.equalsTo(inch);
     }
 }

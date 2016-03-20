@@ -1,4 +1,4 @@
-package lengths;
+package measurements;
 
 public class LeastCountForLength implements LeastCount {
     private int value;

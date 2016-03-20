@@ -1,4 +1,4 @@
-package lengths;
+package measurements;
 
 public class LeastCountForVolume implements LeastCount {
     private double value;

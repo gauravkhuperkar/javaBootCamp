@@ -1,4 +1,6 @@
-import Exceptions.NonPositiveInputException;
+package shapeTest;
+
+import exceptions.NonPositiveInputException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

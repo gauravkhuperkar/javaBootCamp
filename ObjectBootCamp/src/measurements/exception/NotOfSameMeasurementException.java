@@ -1,4 +1,4 @@
-package measurements;
+package measurements.exception;
 
 
 public class NotOfSameMeasurementException extends RuntimeException {

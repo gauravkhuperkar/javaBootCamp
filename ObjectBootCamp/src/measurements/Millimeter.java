@@ -1,18 +1,16 @@
 package measurements;
 
-public class Millimeter implements Unit{
-    @Override
-    public Unit add(Unit unit) {
-        return null;
+public class Millimeter extends LengthUnit{
+    protected Millimeter(double value) {
+        super(value);
     }
 
     @Override
     public double inBase() {
-        return 0;
+        return value;
     }
 
-    @Override
-    public boolean equalsTo(Unit unit) {
-        return false;
+    public static Millimeter create(double value){
+        return new Millimeter(value);
     }
 }

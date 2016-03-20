@@ -1,8 +1,7 @@
 package measurements;
 
-/**
- * Created by gauravkh on 19/03/16.
- */
+import measurements.exception.NotOfSameMeasurementException;
+
 public abstract class LengthUnit implements Unit {
     protected final double value;
     protected LengthUnit(double value){

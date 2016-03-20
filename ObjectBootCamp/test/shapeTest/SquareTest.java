@@ -1,4 +1,6 @@
-import Exceptions.NonPositiveInputException;
+package shapeTest;
+
+import exceptions.NonPositiveInputException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -36,4 +38,6 @@ public class SquareTest {
         thrown.expectMessage(startsWith("side"));
         Square squareNotExist = Square.create(-5);
     }
+
+
 }

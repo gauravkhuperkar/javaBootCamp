@@ -1,4 +1,6 @@
-import Exceptions.IllegalInputException;
+package chanceTest;
+
+import exceptions.IllegalInputException;
 import chance.Chance;
 import org.junit.Test;
 

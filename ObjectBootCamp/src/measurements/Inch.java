@@ -4,11 +4,9 @@
  */
 package measurements;
 
-public class Inch implements Unit {
-    private double value;
-
+public class Inch extends LengthUnit {
     private Inch(double value) {
-        this.value = value;
+        super(value);
     }
 
     public static Inch create(double value) {
@@ -16,18 +14,10 @@ public class Inch implements Unit {
     }
 
 
-    @Override
-    public Unit add(Unit unit) {
-        return Inch.create((double) (inBase() + unit.inBase()) * 0.04);
-    }
 
     @Override
     public double inBase() {
         return value * 25;
     }
 
-    @Override
-    public boolean equalsTo(Unit unit) {
-        return inBase() == unit.inBase();
-    }
 }

@@ -1,7 +1,8 @@
 package measurements;
 
-/**
- * Created by gauravkh on 19/03/16.
- */
-public class NotOfSameMeasurementException {
+
+public class NotOfSameMeasurementException extends RuntimeException {
+    public NotOfSameMeasurementException(String message) {
+        super(message);
+    }
 }

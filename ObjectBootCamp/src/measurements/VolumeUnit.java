@@ -1,19 +1,21 @@
 package measurements;
 
-/**
- * Created by gauravkh on 19/03/16.
- */
-public abstract class VolumeUnit implements Unit{
-    private double value;
+public  abstract class VolumeUnit implements Unit{
+    protected final double volume;
     protected VolumeUnit(double value) {
-        this.value = value;
+        this.volume = value;
     }
     @Override
     public boolean equalsTo(Unit unit) {
+        if (getClass().getSuperclass() != unit.getClass().getSuperclass())
+            throw new NotOfSameMeasurementException("two different measurement can not be equal");
         return inBase() == unit.inBase();
     }
-    @Override
     public Unit add(Unit unit) {
-        return Litre.create((double) (inBase() + unit.inBase()));
+        if(getClass().getSuperclass() != unit.getClass().getSuperclass())
+            throw new NotOfSameMeasurementException("Can not add different measurement");
+        double v = Double.valueOf(String.format("%.2f",(inBase() + unit.inBase())));
+        return Litre.create(v );
     }
+
 }

@@ -5,30 +5,18 @@
 
 package measurements;
 
-public class Feet implements Unit {
-    private final double value;
+public class Feet extends LengthUnit {
 
     private Feet(double value) {
-        this.value = value;
+        super(value);
     }
 
     public static Feet create(int value){
         return new Feet(value);
     }
 
-
-    @Override
-    public Unit add(Unit unit) {
-        return Inch.create((double) (inBase() + unit.inBase()) * 0.4 );
-    }
-
     @Override
     public double inBase() {
         return value * 300;
-    }
-
-    @Override
-    public boolean equalsTo(Unit unit) {
-        return inBase() == unit.inBase();
     }
 }

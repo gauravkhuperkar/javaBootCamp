@@ -1,6 +1,6 @@
 package chance;
 
-import Exceptions.IllegalInputException;
+import exceptions.IllegalInputException;
 
 public class Chance {
 

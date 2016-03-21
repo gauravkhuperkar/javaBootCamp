@@ -3,7 +3,7 @@ package shaps;/*
         -Perform tasks which involves with its fields.
 */
 
-import Exceptions.NonPositiveInputException;
+import exceptions.NonPositiveInputException;
 
 public class Rectangle {
     private double length;

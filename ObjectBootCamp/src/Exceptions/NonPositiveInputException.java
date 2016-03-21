@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 public class NonPositiveInputException extends Exception{
     public NonPositiveInputException(String msg) {

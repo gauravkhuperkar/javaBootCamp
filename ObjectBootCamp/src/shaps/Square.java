@@ -1,6 +1,6 @@
 package shaps;
 
-import Exceptions.NonPositiveInputException;
+import exceptions.NonPositiveInputException;
 
 /*
     JOB-
@@ -17,5 +17,4 @@ public class Square extends Rectangle{
             throw new NonPositiveInputException("side must be non zero positive numbers");
         return new Square(side);
     }
-
 }

@@ -1,4 +1,4 @@
-package serviceForKingdom;
+package serviceForWizard;
 /*
     Job :-
         hold the state of ball and compare the bolls
@@ -11,12 +11,7 @@ public class Ball {
         this.color = color;
     }
 
-    public String getColor(){
-        return color.toText();
+    public boolean isOfColor(Color otherColor) {
+        return color.equals(otherColor);
     }
-
-    public boolean equalTo(Color color){
-        return color.equals(color);
-    }
-
 }

@@ -12,8 +12,7 @@ public class Manager extends ParkingLotObserver {
         super(parkingLots);
     }
 
-    public boolean isEightyPercent(ParkingLot parkingLot){
-        if(parkingLots.containsKey(parkingLot))
-
+    public boolean isEightyPercentOrAbove(ParkingLot parkingLot){
+        return (parkingLots.isAvailable(parkingLot) && parkingLot.isCapacityGreaterThanOrAbove(0.8));
     }
 }

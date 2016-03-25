@@ -6,14 +6,26 @@ package parkingLot;
 
 import java.util.HashMap;
 
-public class ParkingLots extends HashMap<ParkingLot, Integer>{
+public class ParkingLots {
     private final HashMap<ParkingLot,Integer> parkingLots;
 
     public ParkingLots() {
         this.parkingLots = new HashMap();
     }
 
-    public Integer add(ParkingLot parkingLot){
-        return parkingLots.put(parkingLot,0);
+    public void add(ParkingLot parkingLot){
+        parkingLots.put(parkingLot,0);
+    }
+
+    public int size(){
+        return parkingLots.size();
+    }
+
+    public boolean isAvailable(ParkingLot parkingLot) {
+        return parkingLots.containsKey(parkingLot);
+    }
+
+    public void park(ParkingLot parkingLot) {
+        parkingLots.replace(parkingLot, parkingLots.get(parkingLot)+1);
     }
 }

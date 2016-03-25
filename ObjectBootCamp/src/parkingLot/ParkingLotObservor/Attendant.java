@@ -4,5 +4,16 @@ package parkingLot.ParkingLotObservor;
         observer the parking lot and take actions relativly
 */
 
-public class Attendant {
+import parkingLot.ParkingLot;
+import parkingLot.ParkingLots;
+
+public class Attendant extends ParkingLotObserver {
+
+    public Attendant(ParkingLots parkingLots) {
+        super(parkingLots);
+    }
+
+    public boolean isTwentyPercentOrBelow(ParkingLot parkingLot){
+        return (parkingLots.isAvailable(parkingLot) && parkingLot.isCapacityLessThanOrBelow(0.2));
+    }
 }

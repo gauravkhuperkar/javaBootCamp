@@ -24,17 +24,15 @@ public class ManagerTest {
     }
 
     @Test
-    public void attendant_should_say_false_if_particular_parking_lot_capacity_is_greater_than_20_percent() {
+    public void manager_should_say_false_if_particular_parking_lot_capacity_is_less_than_80_percent() {
         ParkingLot parkingLotFor5 = new ParkingLot(5);
         ParkingLots parkingLots = new ParkingLots();
 
         parkingLotFor5.park(new Object());
-        parkingLotFor5.park(new Object());
-        parkingLotFor5.park(new Object());
         parkingLots.add(parkingLotFor5);
 
-        Attendant attendant = new Attendant(parkingLots);
+        Manager manager = new Manager(parkingLots);
 
-        assertFalse(attendant.isTwentyPercentOrBelow(parkingLotFor5));
+        assertFalse(manager.isEightyPercentOrAbove(parkingLotFor5));
     }
 }

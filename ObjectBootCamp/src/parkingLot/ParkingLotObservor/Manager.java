@@ -1,7 +1,7 @@
 package parkingLot.ParkingLotObservor;
 /*
     Job :-
-        get status and give bahaveer with that
+        get status and give bahaviour with that
 */
 
 import parkingLot.ParkingLot;

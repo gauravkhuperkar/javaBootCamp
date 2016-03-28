@@ -15,11 +15,7 @@ public class ParkingLot {
 
     public ParkingLot(int capacity) {
         this.capacity = capacity;
-        this.parkedVehicle = new HashSet<Object>();
-    }
-
-    public void addObserver(ParkingLotObserver observer){
-        observers.addObserver(observer);
+        this.parkedVehicle = new HashSet<>();
     }
 
     public boolean park(Object vehicle) {

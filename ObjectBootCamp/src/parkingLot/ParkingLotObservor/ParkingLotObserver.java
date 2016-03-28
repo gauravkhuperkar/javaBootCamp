@@ -16,7 +16,7 @@ public class ParkingLotObserver {
 
     public ParkingLotObserver(ParkingLots parkingLots) {
         this.parkingLots = parkingLots;
-        this.observers = new ArrayList<ParkingLotObserver>();
+        this.observers = new ArrayList<>();
     }
 
     public void addObserver(ParkingLotObserver observer){
@@ -26,5 +26,13 @@ public class ParkingLotObserver {
     public void report(ParkingLot parkingLot){
         if(parkingLots.isAvailable(parkingLot))
             parkingLots.park(parkingLot);
+    }
+
+    @Override
+    public String toString() {
+        return "ParkingLotObserver{" +
+                "observers=" + observers +
+                ", parkingLots=" + parkingLots +
+                '}';
     }
 }

@@ -7,7 +7,7 @@ import parkingLot.ParkingLots;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class ManagerTest {
+public class  ManagerTest {
     @Test
     public void manager_should_say_true_if_particular_parking_lot_capacity_is_greater_than_or_equal_to_80_percent() {
         ParkingLot parkingLotFor1 = new ParkingLot(1);

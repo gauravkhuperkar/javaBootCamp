@@ -6,14 +6,14 @@ package serviceForWizard;
 
 import java.util.ArrayList;
 
-public class Balls{
+public class Balls {
     private final ArrayList<Ball> balls;
 
     public Balls() {
         this.balls = new ArrayList<>();
     }
 
-    public int size(){
+    public int size() {
         return this.balls.size();
     }
 
@@ -23,8 +23,8 @@ public class Balls{
 
     public int numberOfBalls(Color color) {
         int count = 0;
-        for (Ball ball: balls) {
-            if(ball.isOfColor(color))
+        for (Ball ball : balls) {
+            if (ball.isOfColor(color))
                 count++;
         }
         return count;

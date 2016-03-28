@@ -45,7 +45,4 @@ public class Bag {
         return summary.equals(otherSummary);
     }
 
-    public String toText(){
-        return summary.sequenceSummary();
-    };
 }

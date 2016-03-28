@@ -17,7 +17,7 @@ public class VolumeMeasurement{
         this.unit = unit;
     }
 
-    public boolean equalTo(LengthMeasurement length) {
+    public boolean equalTo(VolumeMeasurement length) {
         return Math.abs(this.covertIntoBase()-length.covertIntoBase()) < 0.01;
     }
 

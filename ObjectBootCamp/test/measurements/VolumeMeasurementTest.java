@@ -1,43 +1,35 @@
 package measurements;
 
+import measurements.scale.VolumeMeasurement;
+import measurements.unit.VolumeUnits;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 public class VolumeMeasurementTest {
 
-//    @Test
-//    public void add_can_add_two_diff_volume_unit() throws Exception {
-//        Unit litre = Litre.create(1);
-//        Unit gallon = Gallon.create(1);
-//        Unit expected = Litre.create(4.78);
-//        Unit actual = litre.add(gallon);
-//        assertEquals(true, expected.equalsTo(actual));
-//    }
-//
-//    @Test
-//    public void compare_gives_true_for_same_values_for_volume_unit() throws Exception {
-//        Unit liter = Litre.create(1);
-//        Unit otherLiter = Litre.create(1);
-//        assertEquals(true,liter.equalsTo(otherLiter));
-//    }
-//
-//    @Test
-//    public void compare_gives_true_for_1_gallon_equals_to_3Point78_gallon() throws Exception {
-//        Unit gallon = Gallon.create(1);
-//        Unit otherLiter = Litre.create(3.78);
-//        assertEquals(true,gallon.equalsTo(otherLiter));
-//
-//    }
-//
-//    @Test
-//    public void add_throws_exception_for_different_measurement_unit() throws Exception {
-//        Unit inch = Inch.create(1);
-//        Unit litre = Litre.create(1);
-//        thrown.expect(NotOfSameMeasurementException.class);
-//        litre.add(inch);
-//    }
-//    @Test
-//    public void equal_throws_exception_for_different_measurement_unit() throws Exception {
-//        Unit inch = Inch.create(1);
-//        Unit litre = Litre.create(1);
-//        thrown.expect(NotOfSameMeasurementException.class);
-//        litre.equalsTo(inch);
-//    }
+    @Test
+    public void volumeMeasurement_knows_1_litre_is_equal_1_litre() {
+        VolumeMeasurement _1_liter = new VolumeMeasurement(1,VolumeUnits.LITRE);
+        VolumeMeasurement other_1_litre = new VolumeMeasurement(1,VolumeUnits.LITRE);
+
+        assertEquals(true,_1_liter.equalTo(other_1_litre));
+    }
+
+    @Test
+    public void volumeMeasurement_knows_addition_of_1_litre_and_1_gallon_is_4point18_litre() {
+        VolumeMeasurement _1_litre = new VolumeMeasurement(1,VolumeUnits.LITRE);
+        VolumeMeasurement _1_gallon = new VolumeMeasurement(1,VolumeUnits.GALLON);
+        VolumeMeasurement expected = new VolumeMeasurement(4.78,VolumeUnits.LITRE);
+
+        assertEquals(true, expected.equalTo(_1_litre.add(_1_gallon)));
+    }
+
+    @Test
+    public void volumeMeasurement_knows_1_gallon_is_equal_to_3point78_litre() {
+        VolumeMeasurement _3point78_litre = new VolumeMeasurement(3.78,VolumeUnits.LITRE);
+        VolumeMeasurement  _1_gallon = new VolumeMeasurement(1,VolumeUnits.GALLON);
+
+        assertEquals(true,_3point78_litre.equalTo(_1_gallon));
+    }
 }
